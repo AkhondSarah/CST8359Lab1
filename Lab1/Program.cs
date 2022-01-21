@@ -1,4 +1,7 @@
-﻿
+﻿/**
+ * Akhond sarah Mesbah 041009466
+ * Lab1
+ * */
 
 using System;
 using System.IO;
@@ -14,11 +17,11 @@ namespace Lab1
     {
         static void Main(string[] args)
         {
-            IList<string> words = new List<string>();
+            IList<string> words = new List<string>();// using generic list type of IList<string>
             string option;
             bool a = true;
 
-            while (a)
+            while (a) // for the menu function to come again
             {
                 System.Console.Write("Options:\n1 - Import Words From File" +
                        "\n2 - Bubble Sort words" +
@@ -35,7 +38,7 @@ namespace Lab1
                 option = Console.ReadLine();
                 Console.WriteLine("\n");
                 Console.Clear();
-                
+                // using th if else function to choose the menu
                 if (option == "1")
                 {
                     option1(words);
@@ -84,22 +87,20 @@ namespace Lab1
          * 
          */
         public static void option1(IList<string> words)
-        {
-            try // exception handilng if the file is not found
+        {try // exception handilng if the file is not found
             {int a= words.Count();// function used to count the number of words in the file
-                using (StreamReader ae = new StreamReader("Words.txt")) // Reading the file
-                {string word;
-                  while ((word = ae.ReadLine()) != null)
-                    {words.Add(word);
-                     a++;
-                    }
-                }
+             using (StreamReader ae = new StreamReader("Words.txt")) // Reading the file
+            {string word;
+             while ((word = ae.ReadLine()) != null)
+             {words.Add(word);
+              a++;
+             }
+            }
             Console.WriteLine("The number of words is  " + a);
             }
             catch (Exception e)
             {
-                Console.WriteLine("The file is not found");
-                Console.WriteLine(e.Message);
+                Console.WriteLine("The file is not found");Console.WriteLine(e.Message);
             }
         }
         /**
